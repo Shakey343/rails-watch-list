@@ -3,6 +3,13 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
+
+    @list = List.new
+    # if @list.save
+    #   redirect_to list_path(@list)
+    # else
+    #   redirect_to root_path
+    # end
   end
 
   def show
