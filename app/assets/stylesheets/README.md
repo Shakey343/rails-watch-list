@@ -1,46 +1,38 @@
 First of all make sure you've created a rails app
 
 ```bash
-rails new -j webpack APP_NAME
+rails new APP_NAME
 ```
 
 ## Setup
 
-Ensure you have Bootstrap and it's dependencies:
+Ensure you have bootstrap and it's dependencies
 
 ```bash
 yarn add bootstrap @popperjs/core
 ```
 
-Ensure you have the following gems in your Rails `Gemfile`:
+Ensure you have the following gems in your Rails `Gemfile`
 
 ```ruby
-# Uncomment this gem already present in your Gemfile
-gem "sassc-rails"
-
-# Add those ones
-gem "autoprefixer-rails"
-gem "font-awesome-sass", "~> 6.1"
-gem "simple_form"
+# Gemfile
+gem 'autoprefixer-rails'
+gem 'font-awesome-sass', '~> 5.6.1'
+gem 'simple_form'
 ```
 
-Add this line to `assets.rb`:
-
-```ruby
-# Add additional assets to the asset load path.
-Rails.application.config.assets.paths << Rails.root.join("node_modules")
-```
-
-In your terminal, generate Simple Form Bootstrap config:
+In your terminal, generate SimpleForm Bootstrap config.
 
 ```bash
 bundle install
 rails generate simple_form:install --bootstrap
 ```
 
+Replace **all the content** of your `config/initializers/simple_form_bootstrap.rb` file with [this](https://github.com/heartcombo/simple_form-bootstrap/blob/main/config/initializers/simple_form_bootstrap.rb).
+
 Then replace Rails' stylesheets by Le Wagon's stylesheets:
 
-```bash
+```
 rm -rf app/assets/stylesheets
 curl -L https://github.com/lewagon/stylesheets/archive/master.zip > stylesheets.zip
 unzip stylesheets.zip -d app/assets && rm stylesheets.zip && mv app/assets/rails-stylesheets-master app/assets/stylesheets
@@ -50,13 +42,14 @@ unzip stylesheets.zip -d app/assets && rm stylesheets.zip && mv app/assets/rails
 
 Note that when you update the colors in `config/colors`, the (text) color of your buttons might change from white to black. This is done automatically by Bootstrap using the [WCAG 2.0 algorithm](https://getbootstrap.com/docs/5.1/customize/sass/#color-contrast) which makes sure that the contrast between the text and the background color meets accessibility standards.
 
+
 ## Bootstrap JS
 
-Import Bootstrap:
+Import bootstrap:
 
 ```js
 // app/javascript/packs/application.js
-import "bootstrap"
+import 'bootstrap';
 ```
 
 ## Adding new `.scss` files
