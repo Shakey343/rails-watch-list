@@ -13,14 +13,14 @@
 <div class="cards">
   <% @lists.each do |list| %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/3709370/pexels-photo-3709370.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)">
+    <% if list.photo.attached? %>
+    <%= cl_image_tag(list.photo.key) %>
+    <% end %>
       <h2 class="text-white"><%= link_to list.name, list_path(list) %></h2>
     </div>
   <% end %>
 </div>
 
-<% if list.photo.attached? %>
-  <%= cl_image_tag list.photo.key %>
-<% end %>
 
 
 <!-- Modal -->
