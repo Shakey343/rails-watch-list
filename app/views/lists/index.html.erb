@@ -18,6 +18,9 @@
   <% end %>
 </div>
 
+<% if list.photo.attached? %>
+  <%= cl_image_tag list.photo.key %>
+<% end %>
 
 
 <!-- Modal -->
