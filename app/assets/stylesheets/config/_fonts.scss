@@ -2,10 +2,16 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
+$body-font: "Fuck Face", "Helvetica", "sans-serif";
 $headers-font: "Nunito", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
+@font-face {
+  font-family: "Fuck Face";
+  src: font-url('ACFilmstrip.otf') format("opentype");
+}
+// $my-font: "Font Name";
+
 // @font-face {
 //   font-family: "Font Name";
 //   src: font-url('FontFile.eot');
